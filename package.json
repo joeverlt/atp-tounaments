@@ -1,0 +1,16 @@
+{
+  "name": "atp-tounaments",
+  "version": "1.0.0",
+  "description": "Nodus challenge",
+  "main": "index.js",
+  "repository": "git@github.com:joeverlt/atp-tounaments.git",
+  "author": "Joel Crespo <joelcrespo.developer@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "docker compose -f \"docker-compose.yml\" up -d --build "
+  },
+  "bugs": {
+    "url": "https://github.com/joeverlt/atp-tounaments/issues"
+  },
+  "homepage": "https://github.com/joeverlt/atp-tounaments#readme"
+}

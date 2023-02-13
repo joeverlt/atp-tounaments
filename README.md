@@ -1,22 +1,36 @@
-# Challenge torneos tenis
+# Proyecto de Partidos de Tenis
 
-En [esta sheet](https://docs.google.com/spreadsheets/d/1GZu4w8_NiJS8I1--C-N5O2dPoj_Bv-ojekMRDS2ToMQ/edit#gid=1490274874) vas a encontrar todos los torneos de tenis que se jugaron desde 1877.
+Este proyecto muestra una lista de partidos de tenis con los jugadores que más veces han ganado cada partido. Al hacer clic en el nombre del jugador, se muestra la última vez que ganó ese partido y algunos datos adicionales sobre ese partido.
 
-Usando la [api de google sheets](https://developers.google.com/sheets/api/) te pedimos que nos digas de cada [Grand Slam](https://es.wikipedia.org/wiki/Grand_Slam_(tenis)), quién es el jugador que mas veces lo ganó y cuando haces un click sobre el jugador te diga cuando fue la ultima vez que lo ganó.
-El diseño te lo dejamos para vos :)
+### Tecnologías usadas
 
+Este proyecto fue desarrollado con las siguientes tecnologías:
 
-### Consignas y Tips
+- Next.js 13
+- Node.js
+- Next-UI
+- Express
+- JSON Web Token (JWT)
 
-* Resolvelo en desarrollando una API REST en Node Js.
-* La resolución debe ser un fork de este repo (Se evalúa el uso de GIT).
-* El frontend nos gustaría verlo en React (o cualquier framework similar).
-* No uses el nombre del Grand Slam como indentificador. Si le prestas atención al excel hay otra forma :).
+### Funcionalidad
 
-### BONUS
+- Muestra una lista de partidos de tenis con los jugadores que más veces han ganado cada partido
+- Al hacer clic en el nombre del jugador, se muestra la última vez que ganó ese partido y algunos datos adicionales sobre ese partido
 
-* Desarrollá un script que permita ejecutar la aplicación (Back y Front) como si fuera un deploy y dar instrucciones de su ejecución.
+### Cómo ejecutar el proyecto en producción con Docker Compose
 
-### El extra mile
+Para ejecutar el proyecto en producción con Docker Compose, siga los siguientes pasos:
 
-Si se te ocurre alguna cosa piola para agregarle al challenge y queres hacerlo y mostrarnos nos ayudarías a mejorar este ejercicio.
+- Clona el repositorio del proyecto en tu máquina local
+- Crea un archivo .env.local dentro de la carpeta "/tounaments-client" basandote en el archovo .env.local.sample
+- Crea un archivo .env dentro de la carpeta "/tounaments-server" basandote en el archovo .env.sample
+- Ejecuta el siguiente comando en la línea de comandos para levantar los contenedores:
+  bash
+
+  docker-compose up -d
+
+### Importante
+
+- Asegúrate de tener Docker y Docker Compose instalados en tu máquina local
+- Utiliza los archivos .env correspondientes para pasar variables de entorno al proyecto.
+- Con el fin de facilitar la ejecucion del proyecto, se agregaron algunas de las variables de entorno del los archivos .env a los .env.samples

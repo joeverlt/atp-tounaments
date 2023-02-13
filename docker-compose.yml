@@ -1,0 +1,66 @@
+version: '3'
+services:
+  tounaments-client:
+    env_file: ./tounaments-client/.env.local
+    image: 'tounaments-client'
+    restart: 'always'
+    build:
+      context: ./tounaments-client
+    depends_on:
+      - tounaments-server
+    volumes:
+      - ./tounaments-client:/usr/src
+      - /usr/src/node_modules
+    ports:
+      - 3000:3000
+    container_name: 'tounaments-client'
+    environment:
+      - API_URL=http://tounaments-server:3001/api/v1
+    working_dir: '/usr/src'
+    stdin_open: true
+    tty: true
+    networks:
+      - local
+
+  tounaments-server:
+    env_file: ./tounaments-server/.env
+    image: 'tounaments-server'
+    restart: 'always'
+    build:
+      context: ./tounaments-server
+    volumes:
+      - ./tounaments-server:/usr/src
+      - /usr/src/node_modules
+    ports:
+      - 3001:3001
+    container_name: 'tounaments-server'
+    working_dir: '/usr/src'
+    environment:
+      - DATABASE_HOST=mongo
+    depends_on:
+      - mongo
+    stdin_open: true
+    tty: true
+    networks:
+      - local
+
+  mongo:
+    image: mongo
+    restart: always
+    volumes:
+      - mongo_data:/var/lib/mongo
+    env_file: ./tounaments-server/.env
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: K2p4m.g3L70
+    networks:
+      - local
+
+volumes:
+  mongo_data: {}
+
+networks:
+  local:
+    driver: bridge
